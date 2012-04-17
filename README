@@ -1,5 +1,6 @@
+------------
 Installation
----------
+------------
 
 Ref.: https://juju.ubuntu.com/docs/getting-started.html
 
@@ -10,8 +11,9 @@ juju status
 
 vim ~/.juju/environments.yaml 
 
+----------------------------
 Configure Juju environnement
----------
+----------------------------
 
 environments:
   sample:
@@ -23,39 +25,47 @@ environments:
     default-series: precise
     ssl-hostname-verification: true
 	
-
+----------------------
 Configure dnmap charms
----------
+----------------------
 
-* Setup dnmap-server:
-
+Setup dnmap-server
+------------------
 vim ~/dnmap-server-config.yaml
 
 dnmap-server:
     command: nmap -sS -O ${TARGET}
 
-* Deploy service:
+Deploy service
+--------------
 	juju deploy --config ~/dnmap-server-config.yaml --repository=~/dnmap-charms/ local:precise/dnmap-server
 
-* Get status
+Get status
+-----------
 	juju status
 	
-* Upgrade service (if needed):
+Upgrade service
+---------------
 	juju upgrade-charm --repository=~/dnmap-charms/ dnmap-server
 
 
-* Setup dnmap-client:
+Setup dnmap-client
+------------------
 
 vim ~/dnmap-client-config.yaml
 
-dnmap-client:
+dnmap-client
+------------
     server: ${SERVER_IP_ADDRESS}
 	
-* Deploy service:
+Deploy service
+--------------
 	juju deploy --config ~/dnmap-client-config.yaml --repository=~/dnmap-charms/ local:precise/dnmap-client
 
-* Get status
+Get status
+----------
 	juju status
 	
-* Upgrade service (if needed):
+Upgrade service
+---------------
 	juju upgrade-charm --repository=~/dnmap-charms/ dnmap-client
