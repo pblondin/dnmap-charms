@@ -1,0 +1,5 @@
+options:
+    command:
+        type: string
+        default: nmap -sS localhost -v -n -oA localhost
+        description: Nmap command to be executed with the dnmap service.

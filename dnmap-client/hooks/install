@@ -1,0 +1,16 @@
+#!/bin/bash
+
+TARGET="dnmap_v0.6.tgz"
+
+set -eux # -x for verbose logging to juju debug-log
+
+juju-log "Installing dependencies (nmap, python-twisted-bin, python-twisted-core)"
+apt-get -y install nmap python-twisted-bin python-twisted-core
+
+juju-log "Downloading $TARGET"
+wget -O $TARGET "http://downloads.sourceforge.net/project/dnmap/dnmap_v0.6.tgz?r=http%3A%2F%2Fsourceforge.net%2Fprojects%2Fdnmap%2Ffiles%2F&ts=1334689540&use_mirror=softlayer"
+
+juju-log "Installing dnmap-client"
+tar -xzvf $TARGET
+
+echo $TARGET

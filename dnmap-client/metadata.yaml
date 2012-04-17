@@ -1,0 +1,11 @@
+name: dnmap-client
+summary: "Distributed NMAP"
+description: |
+    Installs a Distributed NMAP (dnmap) client. See http://mateslab.weebly.com/dnmap-the-distributed-nmap.html
+
+    Publishes the following relation settings for executing services:
+
+      server: server ip address
+requires:
+  server:
+    interface: dnmap-server

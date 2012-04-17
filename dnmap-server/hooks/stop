@@ -1,0 +1,8 @@
+#!/bin/bash
+
+for i in `ps ax | grep dnmap_server | cut -d' ' -f2`;
+do
+  kill -9 $i
+done
+
+juju-log "dnmap successfully stopped"

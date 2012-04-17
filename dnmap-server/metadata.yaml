@@ -1,0 +1,12 @@
+name: dnmap-server
+summary: "Distributed NMAP"
+description: |
+    Installs the Distributed NMAP (dnmap) server. See http://mateslab.weebly.com/dnmap-the-distributed-nmap.html
+
+    Upon a consuming service establishing a relation, wait for clients to connect. 
+    Publishes the following relation settings for consuming services:
+
+      command: nmap command
+provides:
+  server:
+    interface: dnmap-server

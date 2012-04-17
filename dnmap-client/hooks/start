@@ -1,0 +1,12 @@
+#!/bin/bash
+
+PWD="dnmap_v0.6/"
+SERVER=`config-get server`
+
+juju-log "Connecting to dnmap server : $COMMAND"
+
+cd $PWD
+
+./dnmap_client.py -s $SERVER &
+
+juju-log "Dnmap client successfully connected"

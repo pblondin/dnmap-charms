@@ -1,0 +1,5 @@
+options:
+    server:
+        type: string
+        default: localhost
+        description: IP address of the dnmap server.

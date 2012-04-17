@@ -1,0 +1,15 @@
+#!/bin/bash
+
+PWD="dnmap_v0.6/"
+COMMAND=`config-get command`
+COMMAND_FILE="command.txt"
+
+juju-log "Configuring dnmap with command : $COMMAND"
+
+cd $PWD
+
+# Write command file
+echo $COMMAND > $COMMAND_FILE
+./dnmap_server.py -f $COMMAND_FILE -v 0 &
+
+juju-log "Dnmap successfully started"
